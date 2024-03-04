@@ -12,6 +12,9 @@ import { fileURLToPath } from "url";
 //Cấu hình env(môi trường)
 dotenv.config();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename); // Di chuyển đây
+
 const app = express();
 
 // //Kết nối cơ sở dữ liệu
@@ -22,8 +25,6 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "./client/build")));
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 //đường dẫn
 //xứ lý đăng nhập
